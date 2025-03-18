@@ -258,3 +258,5 @@
 [Writing guidelines - Success message - Content - Atlassian Design System](https://atlassian.design/content/writing-guidelines/writing-a-success-message)
 
 Так же при написании текстов обращайтесь к нашему VoT, который хранится в Confluence.
+
+[Использование + и − при переводах](https://plump-argument-8c8.notion.site/Pattern-18ae41d2e83180d69cd7ef689288cbb2)
