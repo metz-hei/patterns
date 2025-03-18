@@ -33,7 +33,6 @@
     "@cspell/dict-ru_ru": "^2.2.4",
     "@docusaurus/module-type-aliases": "3.3.2",
     "@docusaurus/types": "3.3.2",
-    "@vvago/vale": "^3.9.4",
     "cspell": "^8.17.3",
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
