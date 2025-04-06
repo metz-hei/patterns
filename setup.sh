@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Устанавливаем права на выполнение для скриптов
-chmod 755 start.py
-
 # Проверяем наличие Python
 if ! command -v python3 &> /dev/null; then
     echo "Python 3 не найден. Установка Python 3..."
@@ -13,13 +10,8 @@ if ! command -v python3 &> /dev/null; then
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         
         # Добавляем Homebrew в PATH
-        if [ -d "/opt/homebrew" ]; then
-            echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-            eval "$(/opt/homebrew/bin/brew shellenv)"
-        elif [ -d "/usr/local/Homebrew" ]; then
-            echo 'eval "$(/usr/local/Homebrew/bin/brew shellenv)"' >> ~/.zprofile
-            eval "$(/usr/local/Homebrew/bin/brew shellenv)"
-        fi
+        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+        eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
     
     # Устанавливаем Python через Homebrew
@@ -29,5 +21,8 @@ fi
 # Проверяем версию Python
 python3 --version
 
-# Запускаем Python-сервер
-python3 start.py 
+# Устанавливаем права на выполнение для скриптов
+chmod +x start.sh
+chmod +x start.py
+
+echo "Установка завершена. Запустите ./start.sh для запуска сервера." 

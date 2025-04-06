@@ -1,4 +1,4 @@
 @echo off
 cd /d "%~dp0"
-python start.py
+python install.py
 pause 
