@@ -1,7 +1,7 @@
 {
     "version": "0.2",
     "language": "en,ru",
-    "dictionaries": ["cspell-custom-words"],
+    "dictionaries": ["cspell-custom-words", "@cspell/dict-ru_ru"],
     "import": ["@cspell/dict-ru_ru/cspell-ext.json"],
     "dictionaryDefinitions": [
         {
@@ -20,7 +20,6 @@
         ".*",
         "build",
         "node_modules",
-        "src",
         "vale",
         "static",
         "package.json",
