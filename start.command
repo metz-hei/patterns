@@ -1,5 +1,8 @@
 #!/bin/bash
 cd "$(dirname "$0")"
-chmod 755 start.sh
-chmod 755 start.py
+# Устанавливаем права на выполнение для всех скриптов
+chmod +x *.sh
+chmod +x *.py
+chmod +x *.command
+# Запускаем основной скрипт
 ./start.sh 
