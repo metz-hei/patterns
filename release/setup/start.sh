@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Устанавливаем права на выполнение для скриптов
-chmod 755 start.py
+chmod 755 "$(dirname "$0")/start.py"
 
 # Проверяем наличие Python
 if ! command -v python3 &> /dev/null; then
@@ -30,4 +30,4 @@ fi
 python3 --version
 
 # Запускаем Python-сервер
-python3 start.py 
+"$(dirname "$0")/start.py" 

@@ -8,7 +8,7 @@ from pathlib import Path
 PORT = 8000
 
 # Путь к текущей директории
-current_dir = Path(__file__).parent
+current_dir = Path(__file__).parent.parent
 
 def start_server():
     # Переходим в директорию с билдом
