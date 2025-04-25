@@ -20,3 +20,9 @@
 - удалить файл package-lock.json,
 - установить зависимости `npm i`,
 - запустить проект `npm start`.
+
+## Запустить локальный сервер
+
+```bash
+(python3 -m http.server 8000 &) && sleep 1 && open http://localhost:8000
+```
