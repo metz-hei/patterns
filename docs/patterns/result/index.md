@@ -253,10 +253,30 @@
 
 ![Структура и размеры РБ](./paddings-rb.png)
 
+## Механика отображения Floating Action Bar
+
+### Отображение Floating Action Bar в виде кнопок
+
+Если весь контент экрана, включая Floating Action Bar (FAB), умещается во вьюпорт (без необходимости прокрутки), то FAB отображается в виде кнопок:
+
+![Отображение Floating Action Bar в виде кнопок](./fab-button.png)
+
+### Отображение Floating Action Bar в виде закреплённой панели
+
+Если контент не умещается во вьюпорт (например, при раскрытии аккордеона), то FAB становится плавающим и закрепляется в нижней части экрана:
+
+![Отображение Floating Action Bar в виде закреплённой панели (FAB)](./fab-pinned.png)
+
+Что считать вьюпортом:
+
+![Вьюпорт](./fab-viewport.png)
+
+Отступ от последнего элемента на странице до FAB составляет 48px:
+
+![Отступ](./fab-padding.png)
+
 ## Ссылки
 
 [Writing guidelines - Success message - Content - Atlassian Design System](https://atlassian.design/content/writing-guidelines/writing-a-success-message)
-
-Так же при написании текстов обращайтесь к нашему VoT, который хранится в Confluence.
 
 [Использование + и − при переводах](https://plump-argument-8c8.notion.site/Pattern-18ae41d2e83180d69cd7ef689288cbb2)
