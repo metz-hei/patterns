@@ -34,11 +34,27 @@
 4. Если у вас MacOS, то запустить терминал по адресу папки и выполнить запрос
 
    ```bash
-   (python3 -m http.server 8000 &) && sleep 1 && open http://localhost:8000
+   python3 -m http.server 8000 & sleep 1 && curl -s http://localhost:8000 > /dev/null && open http://localhost:8000
    ```
 
 5. Если у вас Windows, то...
 
    ```cmd
    start /b python3 -m http.server 8000 && timeout /t 1 && start http://localhost:8000
+   ```
+
+## Локальная сборка не запускается
+
+Если падает ошибка `OSError: [Errno 48] Address already in use`:
+
+1. Найти процесс, который висит на порте 8000:
+
+   ```cmd
+   sudo lsof -i:8080
+   ```
+
+2. Завершить процесс используя PID получен из первого шага:
+
+   ```cmd
+   kill $PID
    ```
