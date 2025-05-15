@@ -7,7 +7,7 @@
    - если вы [на MacOS](https://developer.apple.com/xcode/), то git встроен в Xcode
    - если вы [на Windows](https://git-scm.com/downloads/win)
 5. Открыть VS Code и клонировать проект на свой компьютер: ```git clone https://github.com/metz-hei/patterns.git```
-6. Изменить директорию терминала на psb: ```cd patterns```
+6. Изменить директорию терминала на patterns: ```cd patterns```
 7. Установить зависимости: ```npm i```
 8. Запустить проект: ```npm start```
 
