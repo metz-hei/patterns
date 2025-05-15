@@ -34,7 +34,7 @@
 4. Если у вас MacOS, то запустить терминал по адресу папки и выполнить запрос
 
    ```bash
-   (python3 -m http.server 8000 &) && sleep 1 && open http://localhost:8000
+   python3 -m http.server 8000 & sleep 1 && curl -s http://localhost:8000 > /dev/null && open http://localhost:8000
    ```
 
 5. Если у вас Windows, то...
