@@ -37,6 +37,12 @@
    python3 -m http.server 8000 & sleep 1 && curl -s http://localhost:8000 > /dev/null && open http://localhost:8000
    ```
 
+   Если возникла ошибка при повторном запуске сервера, то выполните команду:
+
+   ```bash
+   kill $(lsof -t -i:8000)
+   ```
+
 5. Если у вас Windows, то...
 
    ```cmd
