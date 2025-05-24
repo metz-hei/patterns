@@ -66,7 +66,7 @@ const config = {
       },
       footer: {
         style: 'dark',
-        copyright: `© 2024`,
+        copyright: `© 2025` ,
       },
       prism: {
         theme: prismThemes.github,
