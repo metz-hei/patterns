@@ -22,4 +22,16 @@
 
 ## Windows
 
-...
+1. Скачайте [Android Studio](https://developer.android.com/studio).
+   ![Какой чип windows](./download.png)
+2. Установите и запустите программу.
+3. На стартовом экране выберите пункт Virtual Device Manager:
+   ![Virtual Device Manager windows](./more-actions.png)
+4. На экране выбора девайса нажмите на кнопку Start напротив подходящего девайса, по умолчанию там будет один девайс:
+   ![Device windows](./manager.png)
+5. Система запустит эмулятор Android:
+   ![Emulator windows](./android-emulator.png)
+6. Перейдите в телеграм-канал [UI Kit Publications](https://t.me/+4W6R_GLvh-5lZTQy), где публикуются сборки витрины компонентов.
+7. Скачайте последнюю актуальную сборку.
+8. Перетащите apk-файл на экран телефона и после установки запустите приложение:
+   ![App windows](./ui-kit.png)
