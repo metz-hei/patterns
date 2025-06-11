@@ -24,6 +24,7 @@
     "@mdx-js/react": "^3.0.0",
     "@ocular-d/vale-bin": "^2.29.6",
     "clsx": "^2.0.0",
+    "docusaurus-plugin-yandex-metrica": "^1.2.1",
     "markdownlint-cli": "^0.43.0",
     "pre-commit": "^1.0.10",
     "prism-react-renderer": "^2.3.0",

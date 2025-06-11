@@ -47,6 +47,9 @@ const config = {
         onUntruncatedBlogPosts: 'ignore'
       },
     ],
+    ['docusaurus-plugin-yandex-metrica', {
+      counterID: '102592839',
+    }],
   ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
