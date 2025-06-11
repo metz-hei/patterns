@@ -7,7 +7,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'Гайды',
   tagline: 'Что это такое? И зачем все это нужно? ',
-  url: 'https://onemilliondollarsdesigndocumentation.ru/',
+  url: 'https://dc065a95-2dd8-4aac-aba7-8ca3be0445fe.ru',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
