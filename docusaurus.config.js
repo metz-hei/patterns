@@ -50,6 +50,20 @@ const config = {
     ['docusaurus-plugin-yandex-metrica', {
       counterID: '102592839',
     }],
+    [
+      '@easyops-cn/docusaurus-search-local',
+      {
+        hashed: true,
+        language: ['ru', 'en'],
+        highlightSearchTermsOnTargetPage: true,
+        explicitSearchResultPath: true,
+        searchBarPosition: 'right',
+        docsRouteBasePath: '/',
+        indexPages: true,
+        docsDir: 'docs',
+        ignoreFiles: [],
+      },
+    ],
   ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -65,6 +79,10 @@ const config = {
           {collapsible: false, to: '/rdpk', label: 'Редполитика', position: 'left'},
           {collapsible: false, to: '/showcases', label: 'Витрины', position: 'left'},
           {collapsible: false, to: '/about/feature-requests', label: 'О проекте', position: 'right'},
+          {
+            type: 'search',
+            position: 'right',
+          },
         ],
       },
       footer: {
