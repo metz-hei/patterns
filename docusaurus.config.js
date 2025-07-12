@@ -59,8 +59,6 @@ const config = {
         explicitSearchResultPath: true,
         searchBarPosition: 'right',
         indexPages: true,
-        docsDir: 'docs',
-        ignoreFiles: [],
       },
     ],
   ],
