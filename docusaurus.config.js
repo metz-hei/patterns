@@ -58,7 +58,6 @@ const config = {
         highlightSearchTermsOnTargetPage: true,
         explicitSearchResultPath: true,
         searchBarPosition: 'right',
-        docsRouteBasePath: '/',
         indexPages: true,
         docsDir: 'docs',
         ignoreFiles: [],
