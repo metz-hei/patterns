@@ -21,6 +21,7 @@
     "@docusaurus/core": "^3.8.1",
     "@docusaurus/plugin-content-pages": "^3.8.1",
     "@docusaurus/preset-classic": "^3.8.1",
+    "@mavrin/remark-typograf": "^2.2.0",
     "@mdx-js/react": "^3.0.0",
     "@ocular-d/vale-bin": "^2.29.6",
     "clsx": "^2.0.0",

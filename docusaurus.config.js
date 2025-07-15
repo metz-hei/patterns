@@ -28,7 +28,13 @@ const config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: require.resolve('./sidebars.js'),
+          remarkPlugins: [
+            [require('@mavrin/remark-typograf'), {
+              locale: ['ru'],
+            }]
+          ],
         },
+        pages: false,
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -45,6 +51,16 @@ const config = {
         blogTitle: 'Что нового',
         blogSidebarTitle: 'Что нового',
         onUntruncatedBlogPosts: 'ignore'
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-pages',
+      {
+        remarkPlugins: [
+          [require('@mavrin/remark-typograf'), {
+            locale: ['ru'],
+          }]
+        ],
       },
     ],
     ['docusaurus-plugin-yandex-metrica', {
