@@ -1,6 +1,5 @@
 ---
-title: Markdown Page
-description: Markdown page SEO description
+title: Статистика
 wrapperClassName: markdown-page
 hide_table_of_contents: true
 ---

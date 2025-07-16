@@ -5,7 +5,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Гайды',
+  title: 'Паттерны',
   tagline: 'Что это такое? И зачем все это нужно? ',
   url: 'https://dc065a95-2dd8-4aac-aba7-8ca3be0445fe.ru',
   baseUrl: '/',
@@ -14,7 +14,7 @@ const config = {
   favicon: 'img/favicon.ico',
   noIndex: true,
   organizationName: '',
-  projectName: 'Гайды',
+  projectName: 'Паттерны',
   i18n: {
     defaultLocale: 'ru',
     locales: ['ru'],
@@ -80,7 +80,7 @@ const config = {
           {collapsible: false, to: '/patterns', label: 'Паттерны', position: 'left'},
           {collapsible: false, to: '/rdpk', label: 'Редполитика', position: 'left'},
           {collapsible: false, to: '/showcases', label: 'Витрины', position: 'left'},
-          {collapsible: false, to: '/statistic', label: 'Статистика', position: 'left'},
+          {collapsible: false, to: '/statistics', label: 'Статистика', position: 'left'},
           {collapsible: false, to: '/about/feature-requests', label: 'О проекте', position: 'right'},
         ],
       },
