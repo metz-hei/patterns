@@ -79,8 +79,7 @@ const config = {
         items: [
           {collapsible: false, to: '/patterns', label: 'Паттерны', position: 'left'},
           {collapsible: false, to: '/rdpk', label: 'Редполитика', position: 'left'},
-          {collapsible: false, to: '/showcases', label: 'Витрины', position: 'left'},
-          {collapsible: false, to: '/statistics', label: 'Статистика', position: 'left'},
+          {collapsible: false, to: '/resources', label: 'Ресурсы', position: 'left'},
           {collapsible: false, to: '/about/feature-requests', label: 'О проекте', position: 'right'},
         ],
       },
