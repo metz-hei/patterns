@@ -18,7 +18,7 @@ sidebar_position: 1
 
 ## Android
 
-[Как развернуть витрину компонентов Android](./android/index.md)
+[Как развернуть витрину компонентов Android](./showcases/android/)
 
 ## iOS СМБ
 
