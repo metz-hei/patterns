@@ -31,6 +31,9 @@ const config = {
           remarkPlugins: [
             [require('@mavrin/remark-typograf'), {
               locale: ['ru'],
+            }],
+            [require('@remark-embedder/core'), {
+              transformers: [require('@remark-embedder/transformer-oembed')]
             }]
           ],
         },
@@ -59,6 +62,9 @@ const config = {
         remarkPlugins: [
           [require('@mavrin/remark-typograf'), {
             locale: ['ru'],
+          }],
+          [require('@remark-embedder/core'), {
+            transformers: [require('@remark-embedder/transformer-oembed')]
           }]
         ],
       },

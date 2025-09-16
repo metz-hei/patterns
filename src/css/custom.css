@@ -30,3 +30,35 @@
 .backToTopButton_sjWU {
   bottom: 5rem !important;
 }
+
+/* Figma embed responsive wrapper */
+.figmaEmbed {
+  position: relative;
+  aspect-ratio: var(--figma-embed-aspect, 16/9);
+  height: auto;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.figmaEmbed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  overflow: hidden;
+}
+
+/* Page-scoped spacing for scheme headings */
+.schemePage h2 {
+  margin-top: 2.25rem;
+}
+
+/* Spacing before tip admonition on scheme page */
+.schemePage .theme-admonition.theme-admonition-tip {
+  margin-top: 32px;
+}
+
+/* Height now derives from aspect-ratio; no viewport override needed */
