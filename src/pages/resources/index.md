@@ -5,3 +5,5 @@
 🎛️ [Витрины компонентов](/resources/showcases)
 
 📊 [Статистика](/resources/statistics)
+
+💠 [Схема добавления нового компонента](/resources/scheme)

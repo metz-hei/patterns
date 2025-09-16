@@ -35,10 +35,13 @@
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.8.1",
     "@docusaurus/types": "^3.8.1",
+    "@remark-embedder/core": "^3.0.3",
+    "@remark-embedder/transformer-oembed": "^5.0.1",
     "cspell": "^8.17.3",
     "husky": "^9.1.7",
     "lint-staged": "^15.4.3",
-    "markdownlint": "^0.37.4"
+    "markdownlint": "^0.37.4",
+    "remark-embedder": "^0.1.0"
   },
   "browserslist": {
     "production": [
