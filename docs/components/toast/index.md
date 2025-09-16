@@ -12,7 +12,7 @@ Toast — это краткое всплывающее сообщение в 
 
 [Компонент в Figma](https://www.figma.com/design/bYUKHrjBAhYPLdug8qfzFc/09-%E2%9C%85-Popup?node-id=5027-132985&t=68B8VeEYbcWxbh59-4)
 
-[Storybook](http://localhost:3000/storybook/?path=/docs/components-toast--content)
+[Ссылка на Storybook](http://localhost:3000/storybook/?path=/docs/components-toast--content)
 
 ### 1.3. Обновления
 
