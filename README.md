@@ -23,10 +23,11 @@
 
 ## Как добавить к документации сборку Storybook или обновить ее
 
-1. Скачать последний билд из канала [WEB Storybooks](https://matrix.to/#/!rHgKHsjVIxDhMznPKI:code2.ru?via=code2.ru) в Element
+1. Скачать последний билд из канала WEB Storybooks в Element
 2. Создать в папке static папку storybook и перенести в нее содержимое билда:
    ![Сборка Storybook](./static/img/storybook.png)
 3. Теперь можно сделать билд документации `npm run build` и Storybook скопируется туда автоматически
+4. Запустить проект `npm run serve`
 
 ## Как создать сборку для локального запуска
 
