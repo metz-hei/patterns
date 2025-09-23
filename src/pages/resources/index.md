@@ -12,6 +12,4 @@
 
 🐣 [Онбординг новичков](https://www.figma.com/proto/fSVKqvCnPiRPuSX4yAxWyT/%D0%9E%D0%BD%D0%B1%D0%BE%D1%80%D0%B4%D0%B8%D0%BD%D0%B3-%D0%B4%D0%B8%D0%B7%D0%B0%D0%B9%D0%BD%D0%B5%D1%80%D0%B0-%7C-%D0%94%D0%BD%D0%B8-1-2?node-id=0-233&p=f&viewport=830%2C566%2C0.09&t=m5Qo4XReIMYeVszh-0&scaling=scale-down&content-scaling=fixed&starting-point-node-id=0%3A259&show-proto-sidebar=1)
 
-📊 [Статистика](/resources/statistics)
-
-💠 [Схема добавления нового компонента](/resources/scheme)
+📊 [Статистика пользователей МСБ](/resources/statistics)
