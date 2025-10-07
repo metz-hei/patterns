@@ -9,8 +9,6 @@ const config = {
   tagline: 'Что это такое? И зачем все это нужно? ',
   url: 'https://dc065a95-2dd8-4aac-aba7-8ca3be0445fe.ru',
   baseUrl: '/',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
   favicon: 'img/favicon.ico',
   noIndex: true,
   organizationName: '',
@@ -19,6 +17,14 @@ const config = {
     defaultLocale: 'ru',
     locales: ['ru'],
   },
+
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+      onBrokenMarkdownImages: 'warn',
+    },
+  },
+
 
   presets: [
     [
