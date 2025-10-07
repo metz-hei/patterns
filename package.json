@@ -18,9 +18,9 @@
   },
   "dependencies": {
     "@cspell/dict-ru_ru": "^2.2.4",
-    "@docusaurus/core": "^3.8.1",
-    "@docusaurus/plugin-content-pages": "^3.8.1",
-    "@docusaurus/preset-classic": "^3.8.1",
+    "@docusaurus/core": "^3.9.1",
+    "@docusaurus/plugin-content-pages": "^3.9.1",
+    "@docusaurus/preset-classic": "^3.9.1",
     "@mavrin/remark-typograf": "^2.2.0",
     "@mdx-js/react": "^3.0.0",
     "@ocular-d/vale-bin": "^2.29.6",
@@ -33,8 +33,8 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^3.8.1",
-    "@docusaurus/types": "^3.8.1",
+    "@docusaurus/module-type-aliases": "^3.9.1",
+    "@docusaurus/types": "^3.9.1",
     "@remark-embedder/core": "^3.0.3",
     "@remark-embedder/transformer-oembed": "^5.0.1",
     "cspell": "^8.17.3",

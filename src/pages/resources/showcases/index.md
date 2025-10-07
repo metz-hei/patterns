@@ -18,6 +18,10 @@ sidebar_position: 1
 
 [Как развернуть витрину компонентов iOS](/resources/showcases/ios)
 
-## Веб
+## Веб. Сторибуки
 
-<a href="/storybook/" target="_blank" rel="noopener noreferrer">Storybook</a>
+<ul>
+  <li><a href="/storybook-general/" rel="noopener noreferrer">Общий</a></li>
+  <li><a href="/storybook-product-components/" rel="noopener noreferrer">Продуктовые компоненты</a></li>
+  <li><a href="/storybook-calendar/" rel="noopener noreferrer">Календарь</a></li>
+</ul>

@@ -1,10 +1,12 @@
 # Dependencies
 /node_modules
-/static/storybook
+/static/storybook-calendar
+/static/storybook-file-loader
+/static/storybook-general
+/static/storybook-product-components
 
 # Production
 /build
-/release/build
 
 # Generated files
 .docusaurus
