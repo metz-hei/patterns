@@ -80,4 +80,4 @@
 
 ## Ссылки
 
-[Исследование](https://plump-argument-8c8.notion.site/Pattern-18ae41d2e83180d69cd7ef689288cbb2)
+[Исследование](https://plump-argument-8c8.notion.site/1b0e41d2e831807da819c5cfe1203f96?pvs=143)
