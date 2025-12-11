@@ -167,14 +167,12 @@
 #### Типовая ситуация
 
 Под типовые ситуации подходят поля, у которых уже есть четкое предназначение, например: [СНИЛС](https://www.figma.com/design/sklOa7L8pvWQ1QzD8HZIYw/03-%E2%9C%85-Input?node-id=3447-64386&t=E2rxEdMz2x7hy2ii-1),
-[ИНН](https://www.figma.com/design/sklOa7L8pvWQ1QzD8HZIYw/03-%E2%9C%85-Input?node-id=535-56486&t=GwPU4kKRWvhp1z2T-1),
-[телефон](https://www.figma.com/design/sklOa7L8pvWQ1QzD8HZIYw/03-%E2%9C%85-Input?node-id=190-45463&t=GwPU4kKRWvhp1z2T-1),
-[номер счета](https://www.figma.com/design/sklOa7L8pvWQ1QzD8HZIYw/03-%E2%9C%85-Input?node-id=535-56486&t=GwPU4kKRWvhp1z2T-1),
-[дата](https://www.figma.com/design/sklOa7L8pvWQ1QzD8HZIYw/03-%E2%9C%85-Input?node-id=132-5658&t=GwPU4kKRWvhp1z2T-1),
-[сумма](https://www.figma.com/design/sklOa7L8pvWQ1QzD8HZIYw/03-%E2%9C%85-Input?node-id=193-46934&t=GwPU4kKRWvhp1z2T-1), а также
-[пароль](https://www.figma.com/design/sklOa7L8pvWQ1QzD8HZIYw/03-%E2%9C%85-Input?node-id=126-3912&t=GwPU4kKRWvhp1z2T-1),
-[СМС-код](https://www.figma.com/design/sklOa7L8pvWQ1QzD8HZIYw/03-%E2%9C%85-Input?node-id=3447-64664&t=GwPU4kKRWvhp1z2T-1) и
-[СМС-push](https://www.figma.com/design/sklOa7L8pvWQ1QzD8HZIYw/03-%E2%9C%85-Input?node-id=3447-64691&t=GwPU4kKRWvhp1z2T-1). Для таких полей будет разработан набор типовых ошибок, которые следует использовать без изменений.
+ИНН, [телефон](https://www.figma.com/design/sklOa7L8pvWQ1QzD8HZIYw/03-%E2%9C%85-Input?node-id=190-45482&t=uwt53mMXk8CS0lVB-1),
+[номер счета](https://www.figma.com/design/sklOa7L8pvWQ1QzD8HZIYw/03-%E2%9C%85-Input?node-id=532-56496&t=uwt53mMXk8CS0lVB-1),
+[дата](https://www.figma.com/design/sklOa7L8pvWQ1QzD8HZIYw/03-%E2%9C%85-Input?node-id=132-5683&t=uwt53mMXk8CS0lVB-1),
+[сумма](https://www.figma.com/design/sklOa7L8pvWQ1QzD8HZIYw/03-%E2%9C%85-Input?node-id=193-46090&t=uwt53mMXk8CS0lVB-1), а также пароль,
+[СМС-код](https://www.figma.com/design/sklOa7L8pvWQ1QzD8HZIYw/03-%E2%9C%85-Input?node-id=197-50525&t=uwt53mMXk8CS0lVB-1) и
+[СМС-push](https://www.figma.com/design/sklOa7L8pvWQ1QzD8HZIYw/03-%E2%9C%85-Input?node-id=197-50525&t=uwt53mMXk8CS0lVB-1). Для таких полей будет разработан набор типовых ошибок, которые следует использовать без изменений.
 
 :::warning[Типовые поля в работе]
 Совсем скоро в ДС будут стейты ошибок
