@@ -18,7 +18,7 @@ sidebar_position: 1
 
 ## iOS
 
-[РБ 3.39.4](/ios-rb/3.39.4.zip)
+[РБ 3.39.3](/ios-rb/3.39.3.zip)
 
 [СМБ 84.1.0](/ios-smb/84.1.0.zip)
 
