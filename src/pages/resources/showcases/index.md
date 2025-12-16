@@ -12,16 +12,23 @@ sidebar_position: 1
 
 ## Android
 
+[Общий кит 65.0.0](/android-general/65.0.0.apk.zip)
+
 [Как развернуть витрину компонентов Android](/resources/showcases/android)
 
 ## iOS
 
+[РБ 3.39.4](/ios-rb/3.39.4.zip)
+
+[СМБ 84.1.0](/ios-smb/84.1.0.zip)
+
 [Как развернуть витрину компонентов iOS](/resources/showcases/ios)
 
-## Веб. Сторибуки
+## Веб
 
 <ul>
   <li><a href="/storybook-general/" rel="noopener noreferrer">Общий</a></li>
   <li><a href="/storybook-product-components/" rel="noopener noreferrer">Продуктовые компоненты</a></li>
   <li><a href="/storybook-calendar/" rel="noopener noreferrer">Календарь</a></li>
+  <li><a href="/storybook-file-upload/" rel="noopener noreferrer">Файловый загрузчик</a></li>
 </ul>

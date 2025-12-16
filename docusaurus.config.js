@@ -5,14 +5,14 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Паттерны',
+  title: 'Главинтерфейс',
   tagline: 'Что это такое? И зачем все это нужно? ',
   url: 'https://dc065a95-2dd8-4aac-aba7-8ca3be0445fe.ru',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
   noIndex: true,
   organizationName: '',
-  projectName: 'Паттерны',
+  projectName: 'Главинтерфейс',
   i18n: {
     defaultLocale: 'ru',
     locales: ['ru'],
@@ -83,9 +83,9 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       navbar: {
-        title: 'Гайды',
+        title: 'Главинтерфейс',
         logo: {
-          alt: 'Гайды',
+          alt: 'Главинтерфейс',
           src: 'img/logo2.svg',
         },
         items: [
