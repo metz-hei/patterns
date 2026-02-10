@@ -20,7 +20,7 @@ sidebar_position: 1
 
 [РБ 3.39.3](/ios-rb/3.39.3.zip)
 
-[СМБ 84.1.0](/ios-smb/84.1.0.zip)
+[СМБ 84.15.1](/ios-smb/84.15.1.zip)
 
 [Как развернуть витрину компонентов iOS](/resources/showcases/ios)
 
