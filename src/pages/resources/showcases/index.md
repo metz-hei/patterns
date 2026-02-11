@@ -12,7 +12,7 @@ sidebar_position: 1
 
 ## Android
 
-[Общий кит 65.0.0](/android-general/65.0.0.apk.zip)
+[Общий кит 66.6.0](/android-general/66.6.0.apk.zip)
 
 [Как развернуть витрину компонентов Android](/resources/showcases/android)
 
@@ -27,8 +27,10 @@ sidebar_position: 1
 ## Веб
 
 <ul>
-  <li><a href="/storybook-general/" rel="noopener noreferrer">Общий</a></li>
-  <li><a href="/storybook-product-components/" rel="noopener noreferrer">Продуктовые компоненты</a></li>
+  <li><a href="/storybook-general/" rel="noopener noreferrer">Общий 0.153.2</a></li>
+  <li><a href="/storybook-smb/" rel="noopener noreferrer">СМБ 4.33.0</a></li>
+  <li><a href="/storybook-bc/" rel="noopener noreferrer">Бизнес компоненты 1.26.1</a></li>
+  <li><a href="/storybook-pc/" rel="noopener noreferrer">Продуктовые компоненты</a></li>
   <li><a href="/storybook-calendar/" rel="noopener noreferrer">Календарь</a></li>
   <li><a href="/storybook-file-upload/" rel="noopener noreferrer">Файловый загрузчик</a></li>
 </ul>

@@ -3,7 +3,9 @@
 /static/storybook-calendar
 /static/storybook-file-upload
 /static/storybook-general
-/static/storybook-product-components
+/static/storybook-smb
+/static/storybook-pc
+/static/storybook-bc
 /static/ios-rb
 /static/ios-smb
 /static/android-general
