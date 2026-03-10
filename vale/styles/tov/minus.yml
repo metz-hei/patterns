@@ -4,4 +4,4 @@ message: "'%s': число написано не с минусом"
 level: error
 nonword: true
 tokens:
-  - '[-—]\d'
+  - '(?:^|[^\d])[-—]\d'
