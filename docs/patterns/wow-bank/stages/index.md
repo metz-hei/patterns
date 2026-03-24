@@ -15,7 +15,7 @@ sidebar_position: 1
 
 ## 1 этап — MVP
 
-- Контент на плашках (см. подраздел Анатомия плашек). Используем компонент [Container-box](https://www.figma.com/design/gkvm2ZhN87pJWZcD7OLkR0/07-%E2%9C%85-Tools--Carousels--Cards?node-id=33272-94884&t=VXBB2mcQoUQznVsA-1) props: shadow
+- Контент на плашках (см. подраздел [Анатомия плашек](../anatomy/index.md)). Используем компонент [Container-box](https://www.figma.com/design/gkvm2ZhN87pJWZcD7OLkR0/07-%E2%9C%85-Tools--Carousels--Cards?node-id=33272-94884&t=VXBB2mcQoUQznVsA-1) type=shadow box
 - Новый компонент счёта [Control List Account](https://www.figma.com/design/G4Y5zzmntFmcu9DQ0XbyGa/06-%E2%9C%85-Table-Controls?node-id=21018-183039&t=NGBGClcDOLEh910R-1)
 - Оптимизация бокового меню — выделяем основные навигационные разделы, меняем кнопки открытия продуктов на «+». Используем компонент [Menu SideBar](https://www.figma.com/design/8H4Pg6gcbbTnRhUMhPiBnw/%E2%9C%85-%D0%92%D0%B0%D1%83-%D0%B1%D0%B0%D0%BD%D0%BA---%D0%92-%D1%81%D0%BF%D1%80%D0%B8%D0%BD%D1%82?node-id=189-83216&t=wr75upUaKsuQbyDp-1)
 
