@@ -12,6 +12,8 @@ title: Главинтерфейс
 
 ## 1.9.1
 
+Вышел новый паттерн [ВАУ-анимация](/patterns/wow-bank/animation).
+
 Фикс ошибок [по ВАУ-банку](/patterns/wow-bank/).
 
 Вышла новая версия [iOS СМБ 85.2.0](/resources/showcases).
