@@ -12,7 +12,7 @@ sidebar_position: 1
 
 ## Android
 
-[Общий кит 66.6.0](/android-general/66.6.0.apk.zip)
+[Общий кит 77.0.0](/android-general/77.0.0.zip)
 
 [Как развернуть витрину компонентов Android](/resources/showcases/android)
 
@@ -20,7 +20,7 @@ sidebar_position: 1
 
 [РБ 3.39.3](/ios-rb/3.39.3.zip)
 
-[СМБ 85.2.0](/ios-smb/85.2.0.zip)
+[СМБ 86.3.1](/ios-smb/86.3.1.zip)
 
 [Как развернуть витрину компонентов iOS](/resources/showcases/ios)
 
@@ -28,7 +28,7 @@ sidebar_position: 1
 
 <ul>
   <li><a href="/storybook-general/" rel="noopener noreferrer">Общий 0.153.2</a></li>
-  <li><a href="/storybook-smb/" rel="noopener noreferrer">СМБ 4.33.0</a></li>
+  <li><a href="/storybook-smb/" rel="noopener noreferrer">СМБ 4.48.0</a></li>
   <li><a href="/storybook-bc/" rel="noopener noreferrer">Бизнес компоненты 1.26.1</a></li>
   <li><a href="/storybook-pc/" rel="noopener noreferrer">Продуктовые компоненты</a></li>
   <li><a href="/storybook-calendar/" rel="noopener noreferrer">Календарь</a></li>

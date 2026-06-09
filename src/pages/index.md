@@ -10,6 +10,16 @@ title: Главинтерфейс
 
 ## Что нового
 
+## 1.9.2
+
+Вышла новая версия [iOS СМБ 86.3.1](/resources/showcases).
+
+Вышла новая версия [Android общий кит 77.0.0](/resources/showcases).
+
+Вышла новая версия [Сторибук общий 0.177.0](/resources/showcases).
+
+Вышла новая версия [Сторибук СМБ 4.48.0](/resources/showcases).
+
 ## 1.9.1
 
 Вышел новый паттерн [ВАУ-анимация](/patterns/wow-bank/animation).
