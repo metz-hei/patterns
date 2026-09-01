@@ -21,9 +21,8 @@ set +a
 : "${MYSQL_PASSWORD:?В .env нет MYSQL_PASSWORD}"
 : "${MYSQL_DATABASE:?В .env нет MYSQL_DATABASE}"
 
-LOCAL_PORT="${MYSQL_PORT:-3310}"
 REMOTE_MYSQL_HOST="${REMOTE_MYSQL_HOST:-127.0.0.1}"
-REMOTE_MYSQL_PORT="${REMOTE_MYSQL_PORT:-3306}"
+REMOTE_MYSQL_PORT="${REMOTE_MYSQL_PORT:-3310}"
 
 if [[ ! -f backups/users.tsv ]]; then
   echo "Нет backups/users.tsv"
@@ -32,11 +31,9 @@ fi
 
 ASKPASS="$(mktemp)"
 PASSFILE="$(mktemp)"
+SQLFILE="$(mktemp)"
 cleanup() {
-  if [[ -n "${TUNNEL_PID:-}" ]] && kill -0 "$TUNNEL_PID" 2>/dev/null; then
-    kill "$TUNNEL_PID" 2>/dev/null || true
-  fi
-  rm -f "$ASKPASS" "$PASSFILE"
+  rm -f "$ASKPASS" "$PASSFILE" "$SQLFILE"
 }
 trap cleanup EXIT
 
@@ -54,20 +51,15 @@ export DISPLAY="${DISPLAY:-:0}"
 
 SSH_OPTS="-o StrictHostKeyChecking=accept-new -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=20"
 
-if ! nc -z 127.0.0.1 "$LOCAL_PORT" 2>/dev/null; then
-  echo "→ SSH-туннель 127.0.0.1:${LOCAL_PORT} → ${REMOTE_MYSQL_HOST}:${REMOTE_MYSQL_PORT}"
-  ssh $SSH_OPTS -f -N \
-    -L "127.0.0.1:${LOCAL_PORT}:${REMOTE_MYSQL_HOST}:${REMOTE_MYSQL_PORT}" \
-    "${SSH_USER}@${SSH_HOST}"
-  sleep 2
-fi
+echo "→ SQL из backups/users.tsv"
+node scripts/sync-users.cjs --sql > "$SQLFILE"
 
-if ! nc -z 127.0.0.1 "$LOCAL_PORT" 2>/dev/null; then
-  echo "Не удалось открыть туннель к MySQL на ${SSH_HOST}"
-  exit 1
-fi
+echo "→ MySQL ${MYSQL_DATABASE} на ${SSH_HOST} через SSH"
+COUNT="$(
+  ssh $SSH_OPTS "${SSH_USER}@${SSH_HOST}" \
+    "mysql --host=${REMOTE_MYSQL_HOST} --port=${REMOTE_MYSQL_PORT} --user=${MYSQL_USER} --password=${MYSQL_PASSWORD} --default-character-set=utf8mb4 --batch --skip-column-names ${MYSQL_DATABASE}" \
+    < "$SQLFILE" | tail -n 1
+)"
 
-echo "→ Обновление ${MYSQL_DATABASE}"
-MYSQL_HOST=127.0.0.1 MYSQL_PORT="$LOCAL_PORT" node scripts/sync-users.cjs --remote
-
+echo "серверная база ${MYSQL_DATABASE} обновлена: ${COUNT} пользователей из backups/users.tsv."
 echo "Готово."

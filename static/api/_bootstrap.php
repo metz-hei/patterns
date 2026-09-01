@@ -16,9 +16,9 @@ const LOGIN_LOCKOUT_SECONDS = 15 * 60;
 
 function load_env_file() {
     $candidates = [
+        dirname(__DIR__) . '/.env',
+        dirname(__DIR__) . '/private/.env',
         dirname(__DIR__, 2) . '/.env',
-        dirname(__DIR__) . '/../private/.env',
-        dirname(__DIR__) . '/../.env',
         __DIR__ . '/config.local.php',
     ];
     foreach ($candidates as $file) {

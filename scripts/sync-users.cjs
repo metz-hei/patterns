@@ -121,6 +121,7 @@ async function syncUsers(env) {
     user: env.MYSQL_USER || 'root',
     password: env.MYSQL_PASSWORD || '',
     database: env.MYSQL_DATABASE || 'patterns',
+    ssl: false,
   });
 
   const adminLogin = env.AUTH_ADMIN_LOGIN || 'admin';
@@ -142,9 +143,63 @@ async function syncUsers(env) {
   };
 }
 
+function sqlString(value) {
+  return `'${String(value).replace(/\\/g, '\\\\').replace(/'/g, "''")}'`;
+}
+
+function dumpSyncSql(env) {
+  const adminLogin = env.AUTH_ADMIN_LOGIN || 'admin';
+  const users = loadUsersFromTsv(adminLogin);
+  const values = users
+    .map((user) => `(${sqlString(user.login)}, ${sqlString(user.password)}, ${user.is_admin})`)
+    .join(',\n');
+
+  return `SET NAMES utf8mb4;
+CREATE TABLE IF NOT EXISTS users (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  login VARCHAR(255),
+  password TEXT NOT NULL,
+  is_admin TINYINT(1) NOT NULL DEFAULT 0,
+  created_date DATETIME DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE IF NOT EXISTS sessions (
+  token CHAR(64) PRIMARY KEY,
+  user_id INT NOT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  expires_at DATETIME,
+  INDEX (user_id),
+  CONSTRAINT fk_sessions_user FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE IF NOT EXISTS login_attempts (
+  ip VARCHAR(45) PRIMARY KEY,
+  attempts INT NOT NULL DEFAULT 0,
+  locked_until DATETIME NULL,
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+SET @exist := (
+  SELECT COUNT(*) FROM information_schema.COLUMNS
+  WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'users' AND COLUMN_NAME = 'is_admin'
+);
+SET @sql := IF(@exist = 0, 'ALTER TABLE users ADD COLUMN is_admin TINYINT(1) NOT NULL DEFAULT 0', 'SELECT 1');
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
+DELETE FROM sessions;
+DELETE FROM users;
+INSERT INTO users (login, password, is_admin) VALUES
+${values};
+SELECT COUNT(*) AS count FROM users;
+`;
+}
+
 async function main() {
   const remote = process.argv.includes('--remote');
-  const env = resolveEnv(remote);
+  const dumpSql = process.argv.includes('--sql');
+  const env = resolveEnv(remote || dumpSql);
+  if (dumpSql) {
+    process.stdout.write(dumpSyncSql(env));
+    return;
+  }
   const result = await syncUsers(env);
   const target = remote ? 'серверная' : 'локальная';
   process.stdout.write(
