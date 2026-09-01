@@ -1,0 +1,19 @@
+{
+  "IndexDocument": {
+    "Suffix": "index.html"
+  },
+  "ErrorDocument": {
+    "Key": "404.html"
+  },
+  "RoutingRules": [
+    {
+      "Condition": {
+        "HttpErrorCodeReturnedEquals": "404"
+      },
+      "Redirect": {
+        "ReplaceKeyWith": "index.html",
+        "HttpRedirectCode": "302"
+      }
+    }
+  ]
+}

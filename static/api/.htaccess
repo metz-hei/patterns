@@ -1,0 +1,13 @@
+RewriteEngine On
+
+RewriteRule ^auth/login\.php$ auth/login.php [L]
+RewriteRule ^auth/logout\.php$ auth/logout.php [L]
+RewriteRule ^auth/session\.php$ auth/session.php [L]
+RewriteRule ^passwords\.php$ passwords.php [L]
+RewriteRule ^stats\.php$ stats.php [L]
+
+RewriteRule ^auth/login$ auth/login.php [L]
+RewriteRule ^auth/logout$ auth/logout.php [L]
+RewriteRule ^auth/session$ auth/session.php [L]
+RewriteRule ^passwords$ passwords.php [L]
+RewriteRule ^stats$ stats.php [L]

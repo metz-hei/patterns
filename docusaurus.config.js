@@ -7,7 +7,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 const config = {
   title: 'Главинтерфейс',
   tagline: 'Что это такое? И зачем все это нужно? ',
-  url: 'https://dc065a95-2dd8-4aac-aba7-8ca3be0445fe.ru',
+  url: 'https://zdesbildizain.ru',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
   noIndex: true,
@@ -24,6 +24,14 @@ const config = {
       onBrokenMarkdownImages: 'warn',
     },
   },
+
+  clientModules: ['./src/clientModules/authGate.js'],
+  scripts: [
+    {
+      src: '/js/auth.js',
+      defer: true,
+    },
+  ],
 
 
   presets: [
@@ -48,6 +56,7 @@ const config = {
     ],
   ],
   plugins: [
+    './src/plugins/localAuthApi.js',
     [
       '@docusaurus/plugin-content-blog',
       {
