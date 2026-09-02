@@ -6,7 +6,7 @@
 
 💠 [Схема добавления нового компонента](/resources/scheme)
 
-🖼 [Кей вижуал](https://www.figma.com/design/SNeRaqabtEmwl3UZSuMPgp/PSB-design-system_img?node-id=10439-473718&t=X4ujw4ArsySZQFml-1)
+🖼 [Кей вижуал](https://www.figma.com/design/x6dKpIA8SfErwmPRkLhAjL/3D-%D0%BF%D0%B0%D0%BA-%D0%9F%D0%A1%D0%91-2026?node-id=2-2&t=5AJoAOChdRcTRgwo-1)
 
 💫 [Гайд по анимации](https://www.figma.com/proto/0tqu3SeCBZuxmlNsvznEMl/%D0%90%D0%BD%D0%B8%D0%BC%D0%B0%D1%86%D0%B8%D1%8F?page-id=44%3A7878&node-id=1121-28528&p=f&viewport=1306%2C-2958%2C0.05&t=1IZD9RS7PRKkPCYZ-1&scaling=min-zoom&content-scaling=fixed&starting-point-node-id=1121%3A28528&show-proto-sidebar=1)
 
