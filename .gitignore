@@ -12,6 +12,7 @@
 
 # Production
 /build
+/build.zip
 /backups
 /backups/**
 *.tsv

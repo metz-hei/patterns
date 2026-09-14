@@ -77,11 +77,18 @@ export DISPLAY="${DISPLAY:-:0}"
 
 SSH_OPTS="-o StrictHostKeyChecking=accept-new -o PreferredAuthentications=password -o PubkeyAuthentication=no -o ConnectTimeout=20"
 
+RSYNC_PROGRESS=()
+if rsync --help 2>&1 | grep -q 'info=progress2'; then
+  RSYNC_PROGRESS=(--info=progress2)
+elif rsync --help 2>&1 | grep -q -- '--progress'; then
+  RSYNC_PROGRESS=(--progress)
+fi
+
 echo "→ SSH ${SSH_USER}@${SSH_HOST}"
 ssh $SSH_OPTS "${SSH_USER}@${SSH_HOST}" "mkdir -p '${DEPLOY_PATH}'"
 
 echo "→ rsync build/ → ${DEPLOY_PATH}"
-rsync -a --delete --info=progress2 \
+rsync -a --delete "${RSYNC_PROGRESS[@]}" \
   --chmod=ugo=rX,u+w \
   --exclude '.env' \
   --exclude '.env.*' \

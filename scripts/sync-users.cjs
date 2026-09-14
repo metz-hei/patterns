@@ -73,7 +73,7 @@ function loadUsersFromTsv(adminLogin) {
   return users;
 }
 
-async function ensureSchema(conn, adminLogin) {
+async function ensureSchema(conn) {
   await conn.query(`
     CREATE TABLE IF NOT EXISTS users (
       id INT AUTO_INCREMENT PRIMARY KEY,
@@ -109,9 +109,44 @@ async function ensureSchema(conn, adminLogin) {
   if (!names.includes('is_admin')) {
     await conn.query('ALTER TABLE users ADD COLUMN is_admin TINYINT(1) NOT NULL DEFAULT 0');
   }
+}
 
-  await conn.query('UPDATE users SET is_admin = 0');
-  await conn.query('UPDATE users SET is_admin = 1 WHERE login = ?', [adminLogin]);
+async function applyUserSync(conn, users) {
+  const [existingRows] = await conn.query('SELECT id, login FROM users');
+  const existingLogins = new Set(
+    existingRows.map((row) => row.login).filter((login) => login),
+  );
+  const incomingLogins = new Set(users.map((user) => user.login));
+
+  await conn.beginTransaction();
+  try {
+    for (const user of users) {
+      if (existingLogins.has(user.login)) {
+        await conn.query('UPDATE users SET password = ?, is_admin = ? WHERE login = ?', [
+          user.password,
+          user.is_admin,
+          user.login,
+        ]);
+      } else {
+        await conn.query('INSERT INTO users (login, password, is_admin) VALUES (?, ?, ?)', [
+          user.login,
+          user.password,
+          user.is_admin,
+        ]);
+      }
+    }
+
+    const staleLogins = [...existingLogins].filter((login) => !incomingLogins.has(login));
+    if (staleLogins.length) {
+      await conn.query('DELETE FROM users WHERE login IN (?)', [staleLogins]);
+    }
+    await conn.query('DELETE FROM users WHERE login IS NULL OR login = ?', ['']);
+
+    await conn.commit();
+  } catch (error) {
+    await conn.rollback();
+    throw error;
+  }
 }
 
 async function syncUsers(env) {
@@ -127,12 +162,8 @@ async function syncUsers(env) {
   const adminLogin = env.AUTH_ADMIN_LOGIN || 'admin';
   const users = loadUsersFromTsv(adminLogin);
 
-  await ensureSchema(conn, adminLogin);
-  await conn.query('DELETE FROM sessions');
-  await conn.query('DELETE FROM users');
-  await conn.query('INSERT INTO users (login, password, is_admin) VALUES ?', [
-    users.map((user) => [user.login, user.password, user.is_admin]),
-  ]);
+  await ensureSchema(conn);
+  await applyUserSync(conn, users);
 
   const [countRows] = await conn.query('SELECT COUNT(*) AS count FROM users');
   await conn.end();
@@ -184,10 +215,27 @@ SET @sql := IF(@exist = 0, 'ALTER TABLE users ADD COLUMN is_admin TINYINT(1) NOT
 PREPARE stmt FROM @sql;
 EXECUTE stmt;
 DEALLOCATE PREPARE stmt;
-DELETE FROM sessions;
-DELETE FROM users;
-INSERT INTO users (login, password, is_admin) VALUES
+CREATE TEMPORARY TABLE sync_users (
+  login VARCHAR(255) PRIMARY KEY,
+  password TEXT NOT NULL,
+  is_admin TINYINT(1) NOT NULL
+);
+INSERT INTO sync_users (login, password, is_admin) VALUES
 ${values};
+START TRANSACTION;
+UPDATE users u
+INNER JOIN sync_users s ON s.login = u.login
+SET u.password = s.password, u.is_admin = s.is_admin;
+INSERT INTO users (login, password, is_admin)
+SELECT s.login, s.password, s.is_admin
+FROM sync_users s
+LEFT JOIN users u ON u.login = s.login
+WHERE u.id IS NULL;
+DELETE u FROM users u
+LEFT JOIN sync_users s ON s.login = u.login
+WHERE s.login IS NULL;
+COMMIT;
+DROP TEMPORARY TABLE sync_users;
 SELECT COUNT(*) AS count FROM users;
 `;
 }
