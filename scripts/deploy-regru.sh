@@ -17,26 +17,32 @@ fi
 
 DEPLOY_PATH="${DEPLOY_PATH%/}/"
 
-SHOWCASES=(
-  storybook-calendar
-  storybook-file-upload
-  storybook-general
-  storybook-smb
-  storybook-pc
-  storybook-bc
-  ios-rb
-  ios-smb
-  android-general
+# Маски витрин: в имени папки может быть версия, поэтому проверяем по маске.
+SHOWCASE_GLOBS=(
+  'storybook-calendar*'
+  'storybook-file-upload*'
+  'storybook-general*'
+  'storybook-smb*'
+  'storybook-pc*'
+  'storybook-bc*'
+  'ios-rb'
+  'ios-smb'
+  'android-general'
 )
 
 require_showcases() {
   local root="$1"
   local missing=()
-  local dir
-  for dir in "${SHOWCASES[@]}"; do
-    if [[ ! -d "${root}/${dir}" ]] || [[ -z "$(ls -A "${root}/${dir}" 2>/dev/null)" ]]; then
-      missing+=("$dir")
-    fi
+  local pattern dir found
+  for pattern in "${SHOWCASE_GLOBS[@]}"; do
+    found=0
+    for dir in "${root}"/${pattern}; do
+      if [[ -d "$dir" && -n "$(ls -A "$dir" 2>/dev/null)" ]]; then
+        found=1
+        break
+      fi
+    done
+    ((found)) || missing+=("$pattern")
   done
   if ((${#missing[@]})); then
     echo "Нет витрин в ${root}/: ${missing[*]}"
@@ -101,4 +107,12 @@ rsync -a --delete "${RSYNC_PROGRESS[@]}" \
   build/ "${SSH_USER}@${SSH_HOST}:${DEPLOY_PATH}"
 
 echo "Готово: https://zdesbildizain.ru/"
-echo "Проверьте, что .env лежит вне document root, например рядом с www/, а не внутри ${DEPLOY_PATH}"
+
+echo "→ Проверка расположения .env"
+ENV_CHECK_RC=0
+bash "$ROOT_DIR/scripts/check-remote-env.sh" || ENV_CHECK_RC=$?
+if [[ "$ENV_CHECK_RC" == 1 ]]; then
+  echo "Деплой прошёл, но API входа не заработает без .env."
+elif [[ "$ENV_CHECK_RC" == 2 ]]; then
+  echo "Рекомендуется перенести .env наружу: npm run env:check покажет безопасные пути."
+fi

@@ -9,6 +9,7 @@
     "swizzle": "docusaurus swizzle",
     "deploy": "bash scripts/deploy-regru.sh",
     "deploy:docs": "bash scripts/deploy-regru-docs.sh",
+    "env:check": "bash scripts/check-remote-env.sh",
     "clear": "docusaurus clear",
     "serve": "node scripts/serve-local.cjs",
     "serve:static": "docusaurus serve",

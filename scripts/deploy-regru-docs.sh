@@ -18,12 +18,7 @@ fi
 DEPLOY_PATH="${DEPLOY_PATH%/}/"
 
 SHOWCASE_EXCLUDES=(
-  --exclude 'storybook-calendar/'
-  --exclude 'storybook-file-upload/'
-  --exclude 'storybook-general/'
-  --exclude 'storybook-smb/'
-  --exclude 'storybook-pc/'
-  --exclude 'storybook-bc/'
+  --exclude 'storybook-*/'
   --exclude 'ios-rb/'
   --exclude 'ios-smb/'
   --exclude 'android-general/'
@@ -85,3 +80,10 @@ rsync -a --delete "${RSYNC_PROGRESS[@]}" \
 echo "Готово: https://zdesbildizain.ru/"
 echo "Витрины (Storybook, iOS, Android) на сервере остались без изменений."
 echo "Для полного деплоя с витринами: npm run deploy"
+
+echo "→ Проверка расположения .env"
+ENV_CHECK_RC=0
+bash "$ROOT_DIR/scripts/check-remote-env.sh" || ENV_CHECK_RC=$?
+if [[ "$ENV_CHECK_RC" == 1 ]]; then
+  echo "Деплой прошёл, но API входа не заработает без .env."
+fi

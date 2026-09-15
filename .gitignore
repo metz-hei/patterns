@@ -1,11 +1,6 @@
 # Dependencies
 /node_modules
-/static/storybook-calendar
-/static/storybook-file-upload
-/static/storybook-general
-/static/storybook-smb
-/static/storybook-pc
-/static/storybook-bc
+/static/storybook-*
 /static/ios-rb
 /static/ios-smb
 /static/android-general

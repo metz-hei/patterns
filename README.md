@@ -53,8 +53,28 @@ API входа работает на том же порту, что и сайт.
 
 1. Соберите сайт: `npm run build`
 2. Задеплойте: `npm run deploy`
-3. Положите `.env` **вне** document root, например в `/var/www/u1526758/data/.env`, а не внутрь `zdesbildizain.ru/`
-4. Обновите схему БД: `npm run migrate:schema` или пересоздайте пользователей через `npm run seed:users`
+3. Положите `.env` **вне** document root. Рекомендуемый путь — рядом с каталогом сайта, с именем по домену:
+
+   ```bash
+   scp .env u1526758@31.31.196.170:/var/www/u1526758/data/www/zdesbildizain.ru.env
+   ```
+
+   Так файл не пересечётся с `.env` других сайтов аккаунта и останется снаружи web-root.
+4. Проверьте, что сервер его видит: `npm run env:check`. Команда ищет `.env` по списку
+   и предупреждает, если файла нет или он лежит внутри document root.
+5. Обновите схему БД: `npm run migrate:schema` или пересоздайте пользователей через `npm run seed:users`
+
+Порядок поиска `.env` (`static/api/_bootstrap.php`, функция `env_candidates()`), от приоритетного к запасному:
+
+| Путь | Комментарий |
+| --- | --- |
+| `<docroot>/.env` | внутри web-root, только для обратной совместимости |
+| `<www>/<домен>.env` | **рекомендуется**: `/var/www/u1526758/data/www/zdesbildizain.ru.env` |
+| `<www>/.env` | общий для сайтов в `www/` |
+| `<data>/<домен>/.env` | приватный каталог сайта: `/var/www/u1526758/data/zdesbildizain.ru/.env` |
+| `<data>/.env` | общий для всего аккаунта: `/var/www/u1526758/data/.env` |
+| `<docroot>/private/.env` | внутри web-root |
+| `<docroot>/api/config.local.php` | PHP-массив вместо `.env`, внутри web-root |
 
 `backups/`, `*.sql`, `*.tsv` и `.env` не должны попадать в Git или web-root.
 

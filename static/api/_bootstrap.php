@@ -14,13 +14,48 @@ const SESSION_TTL_SECONDS = 365 * 24 * 60 * 60;
 const LOGIN_MAX_ATTEMPTS = 10;
 const LOGIN_LOCKOUT_SECONDS = 15 * 60;
 
-function load_env_file() {
-    $candidates = [
-        dirname(__DIR__) . '/.env',
-        dirname(__DIR__) . '/private/.env',
-        dirname(__DIR__, 2) . '/.env',
-        __DIR__ . '/config.local.php',
+/**
+ * Где искать .env.
+ *
+ * Файл НЕ должен лежать в document root: он содержит MYSQL_PASSWORD и
+ * AUTH_ADMIN_PASSWORD. Безопасные места снаружи (по убыванию приоритета
+ * после legacy-варианта в корне сайта):
+ *
+ *   /var/www/u1526758/data/www/zdesbildizain.ru/.env      — legacy, document root
+ *   /var/www/u1526758/data/www/zdesbildizain.ru.env       — рекомендуется: рядом с www/
+ *   /var/www/u1526758/data/www/.env                       — общий на все сайты аккаунта
+ *   /var/www/u1526758/data/zdesbildizain.ru/.env          — приватный каталог сайта
+ *   /var/www/u1526758/data/.env                           — общий на весь аккаунт
+ *
+ * Приватный каталог делает mod_php/nginx: он закрыт для чтения извне
+ * (data/ недоступен как docroot), поэтому файл там недосягаем по HTTP.
+ */
+function env_candidates() {
+    $apiDir = __DIR__;
+
+    $documentRoot = $_SERVER['DOCUMENT_ROOT'] ?? '';
+    $documentRoot = is_string($documentRoot) ? realpath($documentRoot) : false;
+    if ($documentRoot === false || !is_dir($documentRoot)) {
+        $documentRoot = dirname($apiDir);
+    }
+
+    $siteRoot = basename($documentRoot);
+    $wwwDir = dirname($documentRoot);
+    $accountDir = dirname($wwwDir);
+
+    return [
+        $documentRoot . '/.env',
+        $wwwDir . '/' . $siteRoot . '.env',
+        $wwwDir . '/.env',
+        $accountDir . '/' . $siteRoot . '/.env',
+        $accountDir . '/.env',
+        dirname($apiDir) . '/private/.env',
+        $apiDir . '/config.local.php',
     ];
+}
+
+function load_env_file() {
+    $candidates = env_candidates();
     foreach ($candidates as $file) {
         if (!is_file($file)) {
             continue;
