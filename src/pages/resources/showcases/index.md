@@ -50,13 +50,14 @@ sidebar_position: 1
 
 ## Веб
 
-<!-- markdownlint-disable MD033 -->
-<ul>
-  <li><a href="/storybook-general/" rel="noopener noreferrer">Общий 0.153.2</a></li>
-  <li><a href="/storybook-smb/" rel="noopener noreferrer">СМБ 4.48.0</a></li>
-  <li><a href="/storybook-bc/" rel="noopener noreferrer">Бизнес компоненты 1.26.1</a></li>
-  <li><a href="/storybook-pc/" rel="noopener noreferrer">Продуктовые компоненты</a></li>
-  <li><a href="/storybook-calendar/" rel="noopener noreferrer">Календарь</a></li>
-  <li><a href="/storybook-file-upload/" rel="noopener noreferrer">Файловый загрузчик</a></li>
-</ul>
-<!-- markdownlint-enable MD033 -->
+[Общий 0.210.0](pathname:///storybook-general-0.210.0/)
+
+[СМБ 5.0.0](pathname:///storybook-smb-5.0.0/)
+
+[Бизнес компоненты 1.26.1](pathname:///storybook-bc-1.26.1/)
+
+[Продуктовые компоненты 0.34.0](pathname:///storybook-pc-0.34.0/)
+
+[Календарь 0.17.0](pathname:///storybook-calendar-0.17.0/)
+
+[Файловый загрузчик 0.8.0](pathname:///storybook-file-upload-0.8.0/)
