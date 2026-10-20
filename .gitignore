@@ -20,6 +20,7 @@
 .DS_Store
 .env
 .env.local
+.env.deploy
 .env.development.local
 .env.test.local
 .env.production.local
@@ -32,3 +33,4 @@ search-index.json
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+centos-STD3-4-8-1000GB-U7FG8D48.pem

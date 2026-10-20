@@ -150,15 +150,33 @@ function db() {
     $pass = env_value('MYSQL_PASSWORD', '');
     $dbName = env_value('MYSQL_DATABASE', 'patterns');
 
-    $dsn = "mysql:host={$host};port={$port};dbname={$dbName};charset=utf8mb4";
     $options = [
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
         PDO::ATTR_EMULATE_PREPARES => false,
     ];
-    try {
-        $pdo = new PDO($dsn, $user, $pass, $options);
-    } catch (PDOException $e) {
+
+    // Сначала пробуем адрес из .env. Если это TCP-адрес, а соединение
+    // не проходит (например SELinux не разрешает httpd_t подключаться к
+    // базе по сети: httpd_can_network_connect_db=off), повторяем через
+    // unix-сокет MySQL: под apache он доступен и не требует правки SELinux.
+    $attempts = ["mysql:host={$host};port={$port};dbname={$dbName};charset=utf8mb4"];
+    $attempts[] = "mysql:unix_socket=" . (ini_get('pdo_mysql.default_socket') ?: '/var/lib/mysql/mysql.sock')
+        . ";dbname={$dbName};charset=utf8mb4";
+
+    $lastError = null;
+    foreach ($attempts as $dsn) {
+        try {
+            $pdo = new PDO($dsn, $user, $pass, $options);
+            $lastError = null;
+            break;
+        } catch (PDOException $e) {
+            $lastError = $e;
+        }
+    }
+
+    if (!$pdo instanceof PDO) {
+        error_log('DB connect failed: ' . ($lastError ? $lastError->getMessage() : 'unknown'));
         send_json(['error' => 'Не удалось подключиться к базе данных'], 500);
     }
 
